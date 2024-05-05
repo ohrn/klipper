@@ -524,8 +524,8 @@ class HandleVersions:
         cleanbuild, self.toolstr = tool_versions(options.tools)
         self.version = build_version(options.extra, cleanbuild)
         sys.stdout.write("Version: %s\n" % (self.version,))
-        return "\n// version: %s\n// build_versions: %s\n" % (
-            self.version, self.toolstr)
+        return "\nchar *firmware_version=\"%s\";\n// version: %s\n// build_versions: %s\n" % (
+            self.version, self.version, self.toolstr)
 
 Handlers.append(HandleVersions())
 
